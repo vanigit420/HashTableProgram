@@ -27,6 +27,8 @@ namespace Hash_Table
             hash.Add("17", "avoidable");
             hash.Add("18", "situations");
 
+            hash.Remove("17");
+
             string hash0 = hash.Get("0");
             Console.WriteLine("0th index value:" + hash0);
             string hash1 = hash.Get("1");
@@ -65,8 +67,7 @@ namespace Hash_Table
             Console.WriteLine("17th index value:" + hash17);
             string hash18 = hash.Get("18");
             Console.WriteLine("18th index value:" + hash18);
+
         }
-
     }
-
 }
