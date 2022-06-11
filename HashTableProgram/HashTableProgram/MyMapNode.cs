@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 
 namespace Hash_Table
 {
-    internal class MyMapNode<K, V>
+    public class MyMapNode<K, V>
     {
         private readonly int size;
         //passing the key value pair to the linked list
         private readonly LinkedList<KeyValue<K, V>>[] iteams;
 
-
-        // constructor to initialize
+        /// constructor to initialize  
         public MyMapNode(int size)
         {
             this.size = size;
             this.iteams = new LinkedList<KeyValue<K, V>>[size];
         }
 
-        // method to find the postion of the hash(creating hash code)
-
+        /// method to fing the postion of the hash(creating hash code)
         protected int getArrayPosition(K key)
         {
             int position = key.GetHashCode() % size;
             return Math.Abs(position);
         }
 
-        // method to get a value stored in particular key
+        /// method to get a value stored in particular key
         public V Get(K key)
         {
             int position = getArrayPosition(key);
@@ -52,6 +50,7 @@ namespace Hash_Table
             //object initialization(declaration and initialiation at a one time)
             //It doesnot invoke constructor
             KeyValue<K, V> item = new KeyValue<K, V>() { key = key, value = value };
+            //assign values to Key and Value
             linkedList.AddLast(item);
         }
 
@@ -89,10 +88,13 @@ namespace Hash_Table
             return linkedList;
 
         }
+
+
+
     }
 
-    // this method is for passing Keyvales in linkedlist
-    // where k,v are data types
+    /// this method is for passing Keyvales in linkedlist
+    /// where k,v are data types
     public struct KeyValue<k, v>
     {
         public k key { get; set; }
